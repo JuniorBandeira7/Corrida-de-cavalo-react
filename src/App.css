@@ -1,0 +1,10 @@
+img{
+  height: 100px;
+  width: 100px;
+}
+#pista{
+  width: 100%;
+  background-color: chartreuse;
+  display: flex;
+  flex-direction: column;
+}
