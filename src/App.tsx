@@ -22,6 +22,14 @@ function App() {
     return Math.random() * (max - min) + min;
   }
 
+  function resetPosition () {
+    sethorse1(0)
+    sethorse2(0)
+    sethorse3(0)
+    sethorse4(0)
+    sethorse5(0)
+  }
+
   useEffect(() => {
     if (stop) return
     const winnersHorses: string[] = []
@@ -71,9 +79,11 @@ function App() {
         setStop(true);
         if (winners.length > 1) {
           alert(`Ganhadores: ${winnersHorsesNames}`)
+          resetPosition()
           return
         }
         alert(`Ganhador: ${winnersHorsesNames}`)
+        resetPosition()
       }
     }, 50);
     return () => clearTimeout(timer)
@@ -81,6 +91,7 @@ function App() {
 
   function run () {
     setStop(false)
+    resetPosition()
   }
 
   return (
@@ -92,7 +103,7 @@ function App() {
         <img src={horseGreen} alt="cavalo 1" style={{marginLeft: `${horse4}%`}}/>
         <img src={horse} alt="cavalo 1" style={{marginLeft: `${horse5}%`}}/>
       </div>
-      <button onClick={run}>teste</button>
+      <div id='button-container'><button onClick={run}>Começar corrida</button></div>
     </>
   )
 }
